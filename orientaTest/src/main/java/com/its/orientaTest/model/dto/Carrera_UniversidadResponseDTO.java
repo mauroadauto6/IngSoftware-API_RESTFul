@@ -8,7 +8,10 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CarreraResponseDTO {
-    private String nombre;
-    private String descripcion;
+public class Carrera_UniversidadResponseDTO{
+    private Long Id;
+    private CarreraResponseDTO carrera;
+    private UniversidadResponseDTO universidad;
+
 }
+   
