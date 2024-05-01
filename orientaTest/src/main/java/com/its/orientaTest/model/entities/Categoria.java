@@ -1,5 +1,20 @@
 package com.its.orientaTest.model.entities;
 
-public class Categoria {
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Entity
+@Table(name = "categoria")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class Categoria {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name = "nombre", nullable = false)
+    private String nombre;
 }
