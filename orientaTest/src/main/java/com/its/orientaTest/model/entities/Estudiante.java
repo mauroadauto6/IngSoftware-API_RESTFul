@@ -40,5 +40,4 @@ public class Estudiante {
 
     @Column(name = "intentos_test", nullable = false)
     private Integer intestosTest;
-    
 }

@@ -20,7 +20,6 @@ public interface EstudianteRepository extends JpaRepository<Estudiante, Long> {
 
     @Query("SELECT COUNT(t) FROM Test t WHERE t.estudiante.id = ?1")
     long countTestsByEstudianteId(Integer idEstudiante);
-    
 }
 
 

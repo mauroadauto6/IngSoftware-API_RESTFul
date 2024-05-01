@@ -13,7 +13,6 @@ import lombok.NoArgsConstructor;
 
 
 public class EstudianteRequestDTO {
-
     @NotBlank(message = "El nombre de estudiante no puede estar vacio")
     private String nombre;
 
