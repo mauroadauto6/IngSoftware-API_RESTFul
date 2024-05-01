@@ -13,7 +13,7 @@ public interface EstudianteRepository extends JpaRepository<Estudiante, Long> {
     Optional<Estudiante> findByCorreoElectronico(String correoElectronico);
 
     @Query("SELECT e FROM Estudiante e WHERE e.nombre = ?1 AND e.apellido = ?2")
-    Optional<Estudiante> findByNombreAndApellido(String nombre, String apellido);
+    Optional<Estudiante> findByNombreAndApellido();
 
     @Query("SELECT e FROM Estudiante e WHERE e.fechaRegistro > ?1")
     List<Estudiante> findAllByFechaRegistroAfter(java.sql.Date fechaRegistro);
