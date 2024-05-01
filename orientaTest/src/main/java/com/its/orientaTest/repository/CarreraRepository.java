@@ -13,7 +13,6 @@ public interface CarreraRepository extends JpaRepository<Estudiante, Long> {
     
     @Query("SELECT c FROM Carrera c")
     List<Carrera> findAllCarreras();
-
     @Query("SELECT c FROM Carrera c WHERE c.id = ?1")
     Optional<Carrera> findCarreraById(Integer id);
 } 

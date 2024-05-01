@@ -12,6 +12,7 @@ import java.time.LocalDate;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+
 public class Estudiante {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,7 +38,6 @@ public class Estudiante {
 
     @Column(name = "fecha_registro", nullable = false)
     private LocalDate fechaRegistro;
-
     @Column(name = "intentos_test", nullable = false)
     private Integer intestosTest;
 }

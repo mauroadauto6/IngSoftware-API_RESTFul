@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+
 public class EstudianteResponseDTO {
     private Long id;
     private String nombre;

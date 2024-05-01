@@ -17,7 +17,6 @@ public interface EstudianteRepository extends JpaRepository<Estudiante, Long> {
 
     @Query("SELECT e FROM Estudiante e WHERE e.fechaRegistro > ?1")
     List<Estudiante> findAllByFechaRegistroAfter(java.sql.Date fechaRegistro);
-
     @Query("SELECT COUNT(t) FROM Test t WHERE t.estudiante.id = ?1")
     long countTestsByEstudianteId(Integer idEstudiante);
 }
