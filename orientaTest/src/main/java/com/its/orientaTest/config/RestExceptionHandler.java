@@ -5,11 +5,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import com.its.orientaTest.exception.CarreraNotFoundException;
-import com.its.orientaTest.exception.CorreoElectronicoEnUsoException;
-import com.its.orientaTest.exception.EstudianteNotFoundException;
-import com.its.orientaTest.exception.InvalidCarreraDataException;
-import com.its.orientaTest.exception.MaximoIntentosTestException;
+import com.its.orientaTest.exceptions.CarreraNotFoundException;
+import com.its.orientaTest.exceptions.CorreoElectronicoEnUsoException;
+import com.its.orientaTest.exceptions.EstudianteNotFoundException;
+import com.its.orientaTest.exceptions.InvalidCarreraDataException;
+import com.its.orientaTest.exceptions.MaximoIntentosTestException;
 
 import lombok.AllArgsConstructor;
 @AllArgsConstructor

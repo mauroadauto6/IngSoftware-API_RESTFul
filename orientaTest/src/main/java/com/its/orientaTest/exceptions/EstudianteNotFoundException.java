@@ -1,4 +1,4 @@
-package com.its.orientaTest.exception;
+package com.its.orientaTest.exceptions;
 
 public class EstudianteNotFoundException extends RuntimeException {
     
