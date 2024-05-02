@@ -36,4 +36,6 @@ public class Test {
         inverseJoinColumns = @JoinColumn(name = "pregunta_id", referencedColumnName = "id")
     )
     private List<Pregunta> preguntas = new ArrayList<>();
+
+    
 }
