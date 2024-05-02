@@ -6,8 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
+import java.util.ArrayList;
 
 @Entity
 @Table(name = "test")
@@ -35,5 +35,5 @@ public class Test {
         joinColumns = @JoinColumn(name = "test_id", referencedColumnName = "id"),
         inverseJoinColumns = @JoinColumn(name = "pregunta_id", referencedColumnName = "id")
     )
-    private Set<Pregunta> preguntas = new HashSet<>();
+    private List<Pregunta> preguntas = new ArrayList<>();
 }
