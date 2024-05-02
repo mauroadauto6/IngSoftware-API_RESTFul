@@ -8,8 +8,10 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "respuesta")
 @Data
+
 @AllArgsConstructor
 @NoArgsConstructor
+
 public class Respuesta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
