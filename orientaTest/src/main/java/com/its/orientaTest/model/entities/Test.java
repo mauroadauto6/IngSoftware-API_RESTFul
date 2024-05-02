@@ -4,8 +4,8 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "test")
@@ -17,7 +17,7 @@ public class Test {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "tipo_test" , nullable = false)
+    @Column(name = "tipo_test", nullable = false)
     private String tipoTest;
 
     @Column(name = "fecha_test", nullable = false)
@@ -26,4 +26,7 @@ public class Test {
     @ManyToOne
     @JoinColumn(name = "estudiante_id", nullable = false)
     private Estudiante estudiante;
+
+    @OneToMany(mappedBy = "test", cascade = CascadeType.ALL)
+    private List<Pregunta> preguntas;
 }
