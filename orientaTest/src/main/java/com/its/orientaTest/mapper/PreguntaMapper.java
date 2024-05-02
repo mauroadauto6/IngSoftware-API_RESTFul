@@ -14,17 +14,14 @@ import java.util.List;
 public class PreguntaMapper {
 
         private final ModelMapper modelMapper;
-
-        public PreguntaMapper(ModelMapper modelMapper) {
-            this.modelMapper = modelMapper;
-        }
-
     public Pregunta convertToEntity(PreguntaRequestDTO preguntaRequestDTO){
             return modelMapper.map(preguntaRequestDTO, Pregunta.class);
         }
 
         public PreguntaResponseDTO convertToDTO(Pregunta pregunta){
-            return modelMapper.map(pregunta, PreguntaResponseDTO.class);
+            PreguntaResponseDTO preguntaResponseDTO= modelMapper.map(pregunta, PreguntaResponseDTO.class);
+            preguntaResponseDTO.setNameCategoria(pregunta.getCategoria().getNombre());
+            return preguntaResponseDTO;
         }
 
         public List<PreguntaResponseDTO> convertToListDTO(List<Pregunta> pregunta){

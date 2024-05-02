@@ -6,8 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
+@Table(name = "resultado")
 @Data
-@Table(name = "Resultados")
 @AllArgsConstructor
 @NoArgsConstructor
 public class Resultado {
@@ -15,11 +15,11 @@ public class Resultado {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "carrera_universidad_id", nullable = false)
-    private CarreraUnversidad carreraunversidad;
-
-    @OneToOne()
+    @ManyToOne()
     @JoinColumn(name = "test_id", nullable = false)
     private Test test;
+
+    @ManyToOne
+    @JoinColumn(name = "carrera_universidad_id", nullable = false)
+    private Carrera_Universidad carreraUniversidad;
 }

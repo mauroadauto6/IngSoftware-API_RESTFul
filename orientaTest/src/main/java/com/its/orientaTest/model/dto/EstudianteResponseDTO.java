@@ -8,9 +8,12 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+
 public class EstudianteResponseDTO {
-    private Long Id;
+    private Long id;
     private String nombre;
     private String apellido;
-    private String correoElectronio;
+    private String correoElectronico;
+    private String telefono;
+    private String direccion;
 }

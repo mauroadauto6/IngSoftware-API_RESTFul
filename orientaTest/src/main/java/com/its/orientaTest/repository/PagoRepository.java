@@ -1,4 +1,5 @@
 package com.its.orientaTest.repository;
 
-public interface PagoRepository {
+public class PagoRepository {
+    
 }

@@ -1,6 +1,4 @@
 package com.its.orientaTest.model.dto;
-
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,5 +9,6 @@ import lombok.NoArgsConstructor;
 public class PreguntaResponseDTO {
     private Long id;
     private String Enunciado;
-    private String nombreCategoria;
+    //private CategoriaResponseDTO targetCategoria;
+    private String nameCategoria;
 }

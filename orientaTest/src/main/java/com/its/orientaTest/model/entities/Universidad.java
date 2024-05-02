@@ -6,27 +6,27 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
+@Table(name = "universidad")
 @Data
-@Table(name = "universidades")
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 public class Universidad {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "nombre", nullable = false)
+    @Column(name = "nombre", nullable = false, unique = true)
     private String nombre;
 
-    @Column(name = "correo_electronico", nullable = false)
+    @Column(name = "correo_electronico", nullable = false, unique = true)
     private String correoElectronico;
 
-    @Column(name = "telefono", nullable = false)
+    @Column(name = "telefono", nullable = false, unique = true)
     private String telefono;
 
     @Column(name = "ubicacion", nullable = false)
     private String ubicacion;
 
     @Column(name = "ranking", nullable = false)
-    private int ranking;
+    private Integer ranking;
 }

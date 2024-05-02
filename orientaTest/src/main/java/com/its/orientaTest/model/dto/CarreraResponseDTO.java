@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CarreraResponseDTO {
-    private Long id;
     private String nombre;
     private String descripcion;
 }

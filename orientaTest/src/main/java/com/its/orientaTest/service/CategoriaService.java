@@ -1,7 +1,6 @@
 package com.its.orientaTest.service;
 
-
-import com.its.orientaTest.exception.ResourceNotFoundException;
+import com.its.orientaTest.exceptions.ResourceNotFoundException;
 import com.its.orientaTest.mapper.CategoriaMapper;
 import com.its.orientaTest.model.dto.CategoriaRequestDTO;
 import com.its.orientaTest.model.dto.CategoriaResponseDTO;
@@ -18,12 +17,6 @@ import java.util.List;
 public class CategoriaService {
     private final CategoriaRepository categoriaRepository;
     private final CategoriaMapper categoriaMapper;
-
-
-    public CategoriaService(CategoriaRepository categoriaRepository, CategoriaMapper categoriaMapper) {
-        this.categoriaRepository = categoriaRepository;
-        this.categoriaMapper = categoriaMapper;
-    }
     @Transactional(readOnly = true)
     public List<CategoriaResponseDTO> getAllCategorias(){
         List<Categoria> categorias = categoriaRepository.findAll();
@@ -39,8 +32,8 @@ public class CategoriaService {
     @Transactional
     public CategoriaResponseDTO updateCategoria(Long id, CategoriaRequestDTO categoriaRequestDTO){
         Categoria categoria = categoriaRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Categoria no encontrada con el numero: " +id));
-        categoria.setnombre(categoriaRequestDTO.getnombre());
-        categoria = CategoriaRepository.save(categoria);
+        categoria.setNombre(categoriaRequestDTO.getNombre());
+        categoria = categoriaRepository.save(categoria);
         return categoriaMapper.convertToDTO(categoria);
     }
 
