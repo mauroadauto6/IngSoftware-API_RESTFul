@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.its.orientaTest.exception.ResourceNotFoundException;
+import com.its.orientaTest.exceptions.ResourceNotFoundException;
 import com.its.orientaTest.mapper.EstudianteMapper;
 import com.its.orientaTest.model.dto.EstudianteRequestDTO;
 import com.its.orientaTest.model.dto.EstudianteResponseDTO;

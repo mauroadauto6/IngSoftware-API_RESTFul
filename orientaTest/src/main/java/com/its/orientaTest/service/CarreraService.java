@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.its.orientaTest.exception.ResourceNotFoundException;
+import com.its.orientaTest.exceptions.ResourceNotFoundException;
 import com.its.orientaTest.mapper.CarreraMapper;
 import com.its.orientaTest.model.dto.CarreraResponseDTO;
 import com.its.orientaTest.model.entities.Carrera;
@@ -22,7 +22,6 @@ public class CarreraService {
         List<Carrera> carreras = carreraRepository.findAllCarreras();
         return carreraMapper.toDTOList(carreras);
     }
-
 
     public CarreraResponseDTO obtenerCarreraPorId(Integer id) {
         // Buscar la carrera por ID en el repositorio
