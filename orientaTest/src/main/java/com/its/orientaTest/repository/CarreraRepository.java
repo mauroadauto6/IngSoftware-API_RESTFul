@@ -7,9 +7,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import com.its.orientaTest.model.entities.Carrera;
-import com.its.orientaTest.model.entities.Estudiante;
 
-public interface CarreraRepository extends JpaRepository<Estudiante, Long> {
+public interface CarreraRepository extends JpaRepository<Carrera, Long> {
     
     @Query("SELECT c FROM Carrera c")
     List<Carrera> findAllCarreras();
