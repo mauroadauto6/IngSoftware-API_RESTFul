@@ -28,4 +28,7 @@ public class EstudianteRequestDTO {
 
     @NotBlank(message = "La direccion de estudiante no puede estar vacio")
     private String direccion;
+
+    @NotBlank(message = "La contraseña de estudiante no puede estar vacía")
+    private String contrasenia;
 }

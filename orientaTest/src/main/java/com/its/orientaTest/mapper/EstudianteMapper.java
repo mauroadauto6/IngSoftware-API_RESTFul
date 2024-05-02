@@ -1,5 +1,6 @@
 package com.its.orientaTest.mapper;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -19,9 +20,20 @@ public class EstudianteMapper {
         this.modelMapper = modelMapper;
     }
 
-    public Estudiante convertToEntity(EstudianteRequestDTO estudianteRequestDTO){
-        return modelMapper.map(estudianteRequestDTO,Estudiante.class);
+    public Estudiante convertToEntity(EstudianteRequestDTO estudianteRequestDTO) {
+        Estudiante estudiante = modelMapper.map(estudianteRequestDTO, Estudiante.class);
+    
+        // Verifica si fecha_registro es nulo y asígnale la fecha y hora actual si es necesario
+        if (estudiante.getFechaRegistro() == null) {
+            estudiante.setFechaRegistro(LocalDateTime.now());
+        }
+        
+        // Asigna un valor por defecto a intentos_test si es nulo
+        if (estudiante.getIntentosTest() == null) {
+            estudiante.setIntentosTest(0);  // Ajusta el valor por defecto según sea necesario
+        }
 
+        return estudiante;
     }
 
     public EstudianteResponseDTO toDTO(Estudiante estudiante) {

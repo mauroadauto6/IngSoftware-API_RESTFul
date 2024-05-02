@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.its.orientaTest.exceptions.BadRequestException;
 import com.its.orientaTest.exceptions.ResourceNotFoundException;
 import com.its.orientaTest.mapper.EstudianteMapper;
 import com.its.orientaTest.model.dto.EstudianteRequestDTO;
@@ -52,4 +53,26 @@ public class EstudianteService {
                 .orElseThrow(() -> new ResourceNotFoundException("Estudiante no encontrado con ID: " + id));
         return estudianteMapper.toDTO(estudiante);
     }
+
+    public EstudianteResponseDTO crearEstudiante(EstudianteRequestDTO estudianteRequestDTO) {
+        // Verifica si el correo electrónico ya existe
+        if (estudianteRepository.findByCorreoElectronico(estudianteRequestDTO.getCorreoElectronico()).isPresent()) {
+            throw new BadRequestException("El correo electrónico ya está en uso.");
+        }
+        
+        // Convierte el DTO a la entidad Estudiante
+        Estudiante estudiante = estudianteMapper.convertToEntity(estudianteRequestDTO);
+    
+        // Asegúrate de que el objeto `estudiante` contiene una contraseña válida antes de guardarlo
+        if (estudiante.getContrasenia() == null || estudiante.getContrasenia().isEmpty()) {
+            throw new BadRequestException("La contraseña es requerida.");
+        }
+        
+        // Guarda el estudiante en el repositorio
+        estudiante = estudianteRepository.save(estudiante);
+    
+        // Convierte la entidad Estudiante a EstudianteResponseDTO
+        return estudianteMapper.toDTO(estudiante);
+    }
 }
+
