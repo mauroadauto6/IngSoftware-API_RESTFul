@@ -30,7 +30,7 @@ public class EstudianteController {
     public ResponseEntity<List<EstudianteResponseDTO>> obtenerTodosLosEstudiantes() {
         List<EstudianteResponseDTO> estudiantes = estudianteService.obtenerTodosLosEstudiantes();
         return ResponseEntity.ok(estudiantes);
-    }
+}
 
     public ResponseEntity<EstudianteResponseDTO> obtenerEstudiantePorId(@PathVariable Long id) {
         EstudianteResponseDTO estudiante = estudianteService.obtenerEstudiantePorId(id);
@@ -63,5 +63,16 @@ public class EstudianteController {
         return new ResponseEntity<>(estudianteCreado, HttpStatus.CREATED);
     }
 
-
+    @PostMapping("/autenticar")
+    public ResponseEntity<EstudianteResponseDTO> autenticarEstudiante(@RequestBody EstudianteRequestDTO estudianteRequestDTO) {
+        // Obtener los datos de correo y contraseña del cuerpo de la solicitud
+        String correoElectronico = estudianteRequestDTO.getCorreoElectronico();
+        String contrasenia = estudianteRequestDTO.getContrasenia();
+        
+        // Autentica al estudiante
+        EstudianteResponseDTO estudianteAutenticado = estudianteService.autenticarEstudiante(correoElectronico, contrasenia);
+        
+        // Devuelve los datos del estudiante autenticado
+        return ResponseEntity.ok(estudianteAutenticado);
+    }
 }
