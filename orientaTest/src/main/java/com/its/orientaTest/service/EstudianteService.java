@@ -74,5 +74,30 @@ public class EstudianteService {
         // Convierte la entidad Estudiante a EstudianteResponseDTO
         return estudianteMapper.toDTO(estudiante);
     }
+
+    public List<EstudianteResponseDTO> obtenerTodosLosEstudiantes() {
+        // Obtener la lista de todos los estudiantes desde el repositorio
+        List<Estudiante> estudiantes = estudianteRepository.findAll();
+        
+        // Convertir la lista de entidades Estudiante a una lista de EstudianteResponseDTO
+        List<EstudianteResponseDTO> estudiantesResponseDTO = estudianteMapper.toDTOList(estudiantes);
+        
+        // Devolver la lista de estudiantes en forma de EstudianteResponseDTO
+        return estudiantesResponseDTO;
+    }
+
+    public EstudianteResponseDTO autenticarEstudiante(String correoElectronico, String contrasenia) {
+        // Busca el estudiante por correo electrónico
+        Estudiante estudiante = estudianteRepository.findByCorreoElectronico(correoElectronico)
+                .orElseThrow(() -> new ResourceNotFoundException("Estudiante no encontrado con correo: " + correoElectronico));
+        
+        // Verifica que la contraseña coincida
+        if (!estudiante.getContrasenia().equals(contrasenia)) {
+            throw new BadRequestException("Correo electrónico o contraseña incorrectos.");
+        }
+        
+        // Convierte la entidad Estudiante a EstudianteResponseDTO y devuélvela
+        return estudianteMapper.toDTO(estudiante);
+    }
 }
 
