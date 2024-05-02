@@ -1,5 +1,4 @@
 package com.its.orientaTest.model.entities;
-
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,10 +8,10 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "pago")
+@Table(name = "pagos")
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class Pago {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

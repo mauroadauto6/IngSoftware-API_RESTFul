@@ -1,5 +1,4 @@
 package com.its.orientaTest.repository;
 
-public class RespuestaRepository {
-    
+public interface RespuestaRepository {
 }

@@ -6,8 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "respuesta")
 @Data
+@Table(name = "Respuestas")
 @AllArgsConstructor
 @NoArgsConstructor
 public class Respuesta {
@@ -15,7 +15,7 @@ public class Respuesta {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "valor", nullable = false)
+    @Column(name = "valor")
     private Integer valor;
 
     @ManyToOne

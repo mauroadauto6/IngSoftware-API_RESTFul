@@ -1,5 +1,4 @@
 package com.its.orientaTest.model.entities;
-
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,11 +7,10 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "estudiante")
+@Table(name = "estudiantes")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-
 public class Estudiante {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,17 +25,20 @@ public class Estudiante {
     @Column(name = "correo_electronico", nullable = false)
     private String correoElectronico;
 
-    @Column(name = "contrasenia", nullable = false)
-    private String contrasenia;
-
     @Column(name = "telefono", nullable = false)
     private String telefono;
+
+    @Column(name = "contrasenia", nullable = false)
+    private String contrasenia;
 
     @Column(name = "direccion", nullable = false)
     private String direccion;
 
-    @Column(name = "fecha_registro", nullable = false)
-    private LocalDate fechaRegistro;
-    @Column(name = "intentos_test", nullable = false)
-    private Integer intestosTest;
+   @Column(name = "fecha", nullable = false)
+   private LocalDate fechaRegistro;
+
+   @Column(name = "intentos_test", nullable = false)
+    private Integer intentosTest;
+
 }
+
