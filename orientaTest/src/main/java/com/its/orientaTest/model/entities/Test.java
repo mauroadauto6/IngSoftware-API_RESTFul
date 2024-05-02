@@ -28,14 +28,4 @@ public class Test {
     @ManyToOne
     @JoinColumn(name = "estudiante_id", nullable = false)
     private Estudiante estudiante;
-
-    @ManyToMany
-    @JoinTable(
-        name = "test_pregunta",
-        joinColumns = @JoinColumn(name = "test_id", referencedColumnName = "id"),
-        inverseJoinColumns = @JoinColumn(name = "pregunta_id", referencedColumnName = "id")
-    )
-    private List<Pregunta> preguntas = new ArrayList<>();
-
-    
 }
