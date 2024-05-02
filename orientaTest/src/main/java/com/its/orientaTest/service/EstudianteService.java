@@ -74,5 +74,16 @@ public class EstudianteService {
         // Convierte la entidad Estudiante a EstudianteResponseDTO
         return estudianteMapper.toDTO(estudiante);
     }
+
+    public List<EstudianteResponseDTO> obtenerTodosLosEstudiantes() {
+        // Obtener la lista de todos los estudiantes desde el repositorio
+        List<Estudiante> estudiantes = estudianteRepository.findAll();
+        
+        // Convertir la lista de entidades Estudiante a una lista de EstudianteResponseDTO
+        List<EstudianteResponseDTO> estudiantesResponseDTO = estudianteMapper.toDTOList(estudiantes);
+        
+        // Devolver la lista de estudiantes en forma de EstudianteResponseDTO
+        return estudiantesResponseDTO;
+    }
 }
 
