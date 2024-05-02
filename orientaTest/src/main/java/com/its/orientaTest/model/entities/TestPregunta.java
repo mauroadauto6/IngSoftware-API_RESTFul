@@ -1,27 +1,28 @@
 package com.its.orientaTest.model.entities;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "pregunta")
 @Data
+@Table(name = "test_pregunta")
 @AllArgsConstructor
 @NoArgsConstructor
-public class Pregunta {
+public class TestPregunta {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "enunciado", nullable = false)
-    private String enunciado;
+    @ManyToOne
+    @JoinColumn(name = "test_id", nullable = false)
+    private Test test;
 
-    @OneToOne
-    @JoinColumn(name = "categoria_id", nullable = false)
-    private Categoria categoria;
+    @ManyToOne
+    @JoinColumn(name = "pregunta_id", nullable = false)
+    private Pregunta pregunta;
+
+
 }
