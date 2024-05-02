@@ -1,0 +1,26 @@
+package com.its.orientaTest.model.entities;
+
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Entity
+@Data
+@Table(name = "carrera_universidad")
+@AllArgsConstructor
+@NoArgsConstructor
+
+public class Carrera_Universidad {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @ManyToOne
+    @JoinColumn(name = "carrera_id", nullable = false)
+    private Carrera carrera;
+
+    @ManyToOne
+    @JoinColumn(name = "universidad_id", nullable = false)
+    private Universidad universidad;
+}
