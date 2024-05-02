@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "estudiante")
@@ -37,7 +37,16 @@ public class Estudiante {
     private String direccion;
 
     @Column(name = "fecha_registro", nullable = false)
-    private LocalDate fechaRegistro;
+    private LocalDateTime fechaRegistro;
     @Column(name = "intentos_test", nullable = false)
-    private Integer intestosTest;
+    private Integer intentosTest;  // Asegúrate de cambiar el nombre a `intentosTest` para seguir convenciones de Java.
+
+    // Añade los métodos de acceso para `intentosTest`
+    public Integer getIntentosTest() {
+        return intentosTest;
+    }
+
+    public void setIntentosTest(Integer intentosTest) {
+        this.intentosTest = intentosTest;
+    }
 }

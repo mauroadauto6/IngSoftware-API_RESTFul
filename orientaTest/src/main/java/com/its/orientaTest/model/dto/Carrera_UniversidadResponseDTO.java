@@ -12,6 +12,5 @@ public class Carrera_UniversidadResponseDTO{
     private Long Id;
     private CarreraResponseDTO carrera;
     private UniversidadResponseDTO universidad;
-
 }
    
