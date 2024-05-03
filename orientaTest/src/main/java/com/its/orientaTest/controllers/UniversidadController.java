@@ -32,7 +32,7 @@ public class UniversidadController {
     }
 
     @PostMapping
-    public ResponseEntity<UniversidadResponseDTO> crearCarrera(@RequestBody UniversidadRequestDTO universidadRequestDTO) {
+    public ResponseEntity<UniversidadResponseDTO> crearUniversidad(@RequestBody UniversidadRequestDTO universidadRequestDTO) {
         UniversidadResponseDTO universidadCreada = universidadService.crearUniversidad(universidadRequestDTO);
         return ResponseEntity.ok(universidadCreada);
     }
