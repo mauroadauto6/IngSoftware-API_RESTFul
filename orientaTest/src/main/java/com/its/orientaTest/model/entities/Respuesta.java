@@ -8,8 +8,10 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "respuesta")
 @Data
+
 @AllArgsConstructor
 @NoArgsConstructor
+
 public class Respuesta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,6 +21,6 @@ public class Respuesta {
     private Integer valor;
 
     @ManyToOne
-    @JoinColumn(name = "pregunta_id", nullable = false)
+    @JoinColumn(name = "pregunta_id")
     private Pregunta pregunta;
 }

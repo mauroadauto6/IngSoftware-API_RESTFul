@@ -6,6 +6,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+<<<<<<< HEAD
+import java.util.List;
+import java.util.ArrayList;
+=======
+>>>>>>> 6a399027ef3bf553783515118d3584244f644b54
 
 @Entity
 @Table(name = "test")
@@ -26,4 +31,15 @@ public class Test {
     @ManyToOne
     @JoinColumn(name = "estudiante_id", nullable = false)
     private Estudiante estudiante;
+<<<<<<< HEAD
+
+    @ManyToMany
+    @JoinTable(
+        name = "test_pregunta",
+        joinColumns = @JoinColumn(name = "test_id", referencedColumnName = "id"),
+        inverseJoinColumns = @JoinColumn(name = "pregunta_id", referencedColumnName = "id")
+    )
+    private List<Pregunta> preguntas = new ArrayList<>();
+=======
+>>>>>>> 6a399027ef3bf553783515118d3584244f644b54
 }
