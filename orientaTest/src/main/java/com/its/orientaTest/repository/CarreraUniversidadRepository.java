@@ -15,4 +15,6 @@ public interface CarreraUniversidadRepository extends JpaRepository<CarreraUnive
      // Consulta para obtener una relación específica entre carrera y universidad por ID
      @Query("SELECT cu FROM CarreraUniversidad cu WHERE cu.id = ?1")
      Optional<CarreraUniversidad> findCarreraUniversidadById(Long id);
+     @Query("SELECT cu FROM CarreraUniversidad cu ORDER BY RAND() DESC")
+     List<CarreraUniversidad> findRandomRow();
 }
