@@ -21,5 +21,5 @@ public class Resultado {
 
     @ManyToOne
     @JoinColumn(name = "carrera_universidad_id", nullable = false)
-    private Carrera_Universidad carreraUniversidad;
+    private CarreraUniversidad carreraUniversidad;
 }
