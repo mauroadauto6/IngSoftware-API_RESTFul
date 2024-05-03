@@ -4,9 +4,11 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -47,11 +49,6 @@ public class EstudianteController {
         return ResponseEntity.ok(estudiante);
     }
 
-    public ResponseEntity<EstudianteResponseDTO> actualizarEstudiante(@PathVariable Long id, @RequestBody EstudianteRequestDTO estudianteRequestDTO) {
-        EstudianteResponseDTO estudianteActualizado = estudianteService.actualizarEstudiante(id, estudianteRequestDTO);
-        return ResponseEntity.ok(estudianteActualizado);
-    }
-
     @PostMapping
     public ResponseEntity<EstudianteResponseDTO> crearEstudiante(@RequestBody EstudianteRequestDTO estudianteRequestDTO) {
         // Asegúrate de que el DTO contiene una contraseña válida antes de pasarlo al servicio.
@@ -74,5 +71,22 @@ public class EstudianteController {
         
         // Devuelve los datos del estudiante autenticado
         return ResponseEntity.ok(estudianteAutenticado);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> eliminarEstudiante(@PathVariable Long id) {
+        // Llama al servicio para eliminar al estudiante por su ID
+        estudianteService.eliminarEstudiante(id);
+        // Devuelve una respuesta con código de estado 204 (No Content)
+        return ResponseEntity.noContent().build();
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<EstudianteResponseDTO> actualizarEstudiante(
+            @PathVariable Long id, 
+            @RequestBody EstudianteRequestDTO estudianteRequestDTO) {
+        
+        EstudianteResponseDTO estudianteActualizado = estudianteService.actualizarEstudiante(id, estudianteRequestDTO);
+        return ResponseEntity.ok(estudianteActualizado);
     }
 }

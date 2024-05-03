@@ -12,6 +12,7 @@ import com.its.orientaTest.model.dto.EstudianteResponseDTO;
 import com.its.orientaTest.model.entities.Estudiante;
 import com.its.orientaTest.repository.EstudianteRepository;
 
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 
 @Service
@@ -38,15 +39,6 @@ public class EstudianteService {
         return estudianteMapper.toDTOList(estudiantes);
     }
 
-    public EstudianteResponseDTO actualizarEstudiante(Long id, EstudianteRequestDTO estudianteRequestDTO) {
-        Estudiante estudiante = estudianteRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Estudiante no encontrado con ID: " + id));
-        
-        estudianteMapper.updateEntity(estudiante, estudianteRequestDTO);
-        estudiante = estudianteRepository.save(estudiante);
-        
-        return estudianteMapper.toDTO(estudiante);
-    }
 
     public EstudianteResponseDTO obtenerEstudiantePorId(Long id) {
         Estudiante estudiante = estudianteRepository.findById(id)
@@ -97,6 +89,31 @@ public class EstudianteService {
         }
         
         // Convierte la entidad Estudiante a EstudianteResponseDTO y devuélvela
+        return estudianteMapper.toDTO(estudiante);
+    }
+
+    @Transactional
+    public void eliminarEstudiante(Long id) {
+        // Busca el estudiante por su ID
+        Estudiante estudiante = estudianteRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Estudiante no encontrado con ID: " + id));
+        
+        // Elimina el estudiante del repositorio
+        estudianteRepository.delete(estudiante);
+    }
+
+    public EstudianteResponseDTO actualizarEstudiante(Long id, EstudianteRequestDTO estudianteRequestDTO) {
+        // Buscar el estudiante por ID
+        Estudiante estudiante = estudianteRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Estudiante no encontrado con ID: " + id));
+        
+        // Actualizar los datos del estudiante con los datos del DTO
+        estudianteMapper.updateEntity(estudiante, estudianteRequestDTO);
+        
+        // Guardar los cambios
+        estudiante = estudianteRepository.save(estudiante);
+        
+        // Convertir el estudiante actualizado a EstudianteResponseDTO
         return estudianteMapper.toDTO(estudiante);
     }
 }

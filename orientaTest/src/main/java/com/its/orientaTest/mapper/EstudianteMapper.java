@@ -47,6 +47,10 @@ public class EstudianteMapper {
     }
 
     public void updateEntity(Estudiante estudiante, EstudianteRequestDTO estudianteRequestDTO) {
-        modelMapper.map(estudianteRequestDTO, estudiante);
+        estudiante.setNombre(estudianteRequestDTO.getNombre());
+        estudiante.setApellido(estudianteRequestDTO.getApellido());
+        estudiante.setCorreoElectronico(estudianteRequestDTO.getCorreoElectronico());
+        estudiante.setContrasenia(estudianteRequestDTO.getContrasenia());
+        // Actualiza otros campos según sea necesario
     }
 }
