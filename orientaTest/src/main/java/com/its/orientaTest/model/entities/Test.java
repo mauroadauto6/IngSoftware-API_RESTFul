@@ -6,8 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
-import java.util.List;
-import java.util.ArrayList;
 
 @Entity
 @Table(name = "test")
@@ -28,12 +26,4 @@ public class Test {
     @ManyToOne
     @JoinColumn(name = "estudiante_id", nullable = false)
     private Estudiante estudiante;
-
-    @ManyToMany
-    @JoinTable(
-        name = "test_pregunta",
-        joinColumns = @JoinColumn(name = "test_id", referencedColumnName = "id"),
-        inverseJoinColumns = @JoinColumn(name = "pregunta_id", referencedColumnName = "id")
-    )
-    private List<Pregunta> preguntas = new ArrayList<>();
 }
