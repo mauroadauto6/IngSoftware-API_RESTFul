@@ -4,6 +4,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import com.its.orientaTest.model.dto.UniversidadRequestDTO;
 import com.its.orientaTest.model.dto.UniversidadResponseDTO;
 import com.its.orientaTest.service.UniversidadService;
 import lombok.AllArgsConstructor;
@@ -28,6 +29,12 @@ public class UniversidadController {
     public ResponseEntity<UniversidadResponseDTO> getUniversidadById(@PathVariable Long id) {
         UniversidadResponseDTO universidad = universidadService.getUniversidadById(id);
         return new ResponseEntity<>(universidad, HttpStatus.OK);
+    }
+
+    @PostMapping
+    public ResponseEntity<UniversidadResponseDTO> crearCarrera(@RequestBody UniversidadRequestDTO universidadRequestDTO) {
+        UniversidadResponseDTO universidadCreada = universidadService.crearUniversidad(universidadRequestDTO);
+        return ResponseEntity.ok(universidadCreada);
     }
 
 }

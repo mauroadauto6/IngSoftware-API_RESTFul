@@ -1,5 +1,6 @@
 package com.its.orientaTest.mapper;
 
+import com.its.orientaTest.model.dto.UniversidadRequestDTO;
 import com.its.orientaTest.model.dto.UniversidadResponseDTO;
 import com.its.orientaTest.model.entities.Universidad;
 
@@ -24,4 +25,8 @@ public class UniversidadMapper {
                 .toList();
     }
     
+    public Universidad convertToEntity(UniversidadRequestDTO universidadRequestDTO){
+        return modelMapper.map(universidadRequestDTO, Universidad.class);
+    }
+
 }
