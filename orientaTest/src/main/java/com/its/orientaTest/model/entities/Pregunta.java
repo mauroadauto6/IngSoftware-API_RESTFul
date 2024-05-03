@@ -21,4 +21,8 @@ public class Pregunta {
     @OneToOne
     @JoinColumn(name = "categoria_id", nullable = false)
     private Categoria categoria;
+
+    @ManyToOne
+    @JoinColumn(name = "test_id")
+    private Test test;
 }
