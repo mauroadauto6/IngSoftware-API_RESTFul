@@ -7,20 +7,18 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Data
-@Table(name = "carrera_universidad")
+@Table(name = "carreraUniversidad")
 @AllArgsConstructor
 @NoArgsConstructor
 
-public class Carrera_Universidad {
+public class CarreraUniversidad {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "carrera_id", nullable = false)
-    private Carrera carrera;
+    @Column(name = "carrera", nullable = false)
+    private String carrera;
 
-    @ManyToOne
-    @JoinColumn(name = "universidad_id", nullable = false)
-    private Universidad universidad;
+    @Column(name = "universidad", nullable = false)
+    private String universidad;
 }

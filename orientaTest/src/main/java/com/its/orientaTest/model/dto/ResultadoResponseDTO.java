@@ -10,5 +10,5 @@ import lombok.NoArgsConstructor;
 public class ResultadoResponseDTO {
     private Long id;
     private String test;
-    private Carrera_UniversidadResponseDTO carreraUniversidad;
+    private CarreraUniversidadResponseDTO carreraUniversidad;
 }
