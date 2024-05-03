@@ -1,14 +1,16 @@
 package com.its.orientaTest.model.dto;
 
+
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ResultadoResponseDTO {
-    private Long id;
-    private String test;
-    private Carrera_UniversidadResponseDTO carreraUniversidad;
+@Data
+public class CategoriaRequestDTO {
+    @NotBlank(message = "Debe contener el nombre")
+    private String nombre;
+
 }

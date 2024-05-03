@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 
 public class RespuestaResponseDTO {
     private Long id;
-    private Long preguntaId;
-    private Integer valor;    
+    private Integer valor;
+
+    private String pregunta;        
 }

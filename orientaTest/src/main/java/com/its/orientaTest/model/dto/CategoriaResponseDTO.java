@@ -5,10 +5,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-
-public class Test_PreguntaResponseDTO {
-    private Long preguntaId;
-    private Long testId;    
+@AllArgsConstructor
+public class CategoriaResponseDTO {
+    private Long id;
+    private String nombre;
 }

@@ -21,6 +21,6 @@ public class Respuesta {
     private Integer valor;
 
     @ManyToOne
-    @JoinColumn(name = "pregunta_id", nullable = false)
+    @JoinColumn(name = "pregunta_id")
     private Pregunta pregunta;
 }

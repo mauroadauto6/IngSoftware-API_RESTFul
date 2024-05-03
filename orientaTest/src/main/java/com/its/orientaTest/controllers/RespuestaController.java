@@ -43,5 +43,4 @@ public class RespuestaController {
         RespuestaResponseDTO validateRespuesta = respuestaService.validarRespuesta(id, respuestaDTO);
         return new ResponseEntity<>(validateRespuesta, HttpStatus.OK);                                                                            
     }
-        
 }
