@@ -1,9 +1,11 @@
 package com.its.orientaTest.model.dto;
 
 import lombok.Data;
+import java.time.LocalDate;
 
 @Data
 public class TestRequestDTO {
-    private Long preguntaId;
-    private PreguntaRequestDTO preguntaRequestDTO;
+    private String tipoTest;
+    private LocalDate fechaTest;
+    private Long estudianteId;
 }
