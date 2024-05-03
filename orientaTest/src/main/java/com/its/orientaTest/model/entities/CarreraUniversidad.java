@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 
-public class Carrera_Universidad {
+public class CarreraUniversidad {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
