@@ -4,7 +4,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import com.its.orientaTest.model.dto.ResultadoRequestDTO;
 import com.its.orientaTest.model.dto.ResultadoResponseDTO;
+import com.its.orientaTest.model.entities.CarreraUniversidad;
 import com.its.orientaTest.service.ResultadoService;
 import lombok.AllArgsConstructor;
 
@@ -29,5 +31,21 @@ public class ResultadoController {
     public ResponseEntity<ResultadoResponseDTO> getUniversidadById(@PathVariable Long id) {
         ResultadoResponseDTO resultado = resultadoService.getResultadoById(id);
         return new ResponseEntity<>(resultado, HttpStatus.OK);
+    }
+
+    @GetMapping("/random")
+    public ResponseEntity<CarreraUniversidad> obtenerResultadoAleatorio() {
+        CarreraUniversidad carreraUniversidad = resultadoService.obtenerCarreraUniversidadAleatoria();
+        if (carreraUniversidad != null) {
+            return ResponseEntity.ok(carreraUniversidad);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @PostMapping
+    public ResponseEntity<ResultadoResponseDTO> crearResultado(@RequestBody ResultadoRequestDTO resultadoRequestDTO) {
+        ResultadoResponseDTO resultadoCreado = resultadoService.crearResultado(resultadoRequestDTO);
+        return ResponseEntity.ok(resultadoCreado);
     }
 }

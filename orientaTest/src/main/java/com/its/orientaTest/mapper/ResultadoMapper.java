@@ -1,5 +1,6 @@
 package com.its.orientaTest.mapper;
 
+import com.its.orientaTest.model.dto.ResultadoRequestDTO;
 import com.its.orientaTest.model.dto.ResultadoResponseDTO;
 import com.its.orientaTest.model.entities.Resultado;
 
@@ -16,6 +17,10 @@ public class ResultadoMapper {
 
     public ResultadoResponseDTO convertToDTO(Resultado resultado){
         return modelMapper.map(resultado, ResultadoResponseDTO.class);
+    }
+
+    public Resultado convertToEntity(ResultadoRequestDTO resultadoRequestDTO){
+        return modelMapper.map(resultadoRequestDTO, Resultado.class);
     }
 
     public List<ResultadoResponseDTO> convertToListDTO(List<Resultado> resultados){

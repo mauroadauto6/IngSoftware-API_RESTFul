@@ -1,5 +1,5 @@
 package com.its.orientaTest.service;
 
-public class Carrera_UniversidadService {
+public class CarreraUniversidadService {
     
 }
