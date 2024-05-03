@@ -8,6 +8,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CarreraRequestDTO {
-    private String nombre;       // Nombre de la carrera
-    private String descripcion;  // Descripción de la carrera
+    private String nombre;  
+    private String descripcion;
 }
