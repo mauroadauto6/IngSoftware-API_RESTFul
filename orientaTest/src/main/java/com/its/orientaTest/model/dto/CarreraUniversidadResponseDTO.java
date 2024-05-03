@@ -8,10 +8,9 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Carrera_UniversidadResponseDTO{
+public class CarreraUniversidadResponseDTO{
     private Long Id;
     private CarreraResponseDTO carrera;
     private UniversidadResponseDTO universidad;
-
 }
    

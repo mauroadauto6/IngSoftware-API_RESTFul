@@ -1,6 +1,7 @@
 package com.its.orientaTest.service;
 
 import com.its.orientaTest.repository.UniversidadRepository;
+import com.its.orientaTest.model.dto.UniversidadRequestDTO;
 import com.its.orientaTest.model.dto.UniversidadResponseDTO;
 import com.its.orientaTest.mapper.UniversidadMapper;
 import com.its.orientaTest.model.entities.Universidad;
@@ -29,5 +30,13 @@ public class UniversidadService {
         Universidad universidad = universidadRepository.findById(id)
                 .orElseThrow(()-> new ResourceNotFoundException("Universidad no encontrada con el numero:"+id));
         return universidadMapper.convertToDTO(universidad);
+    }
+
+    public UniversidadResponseDTO crearUniversidad(UniversidadRequestDTO universidadRequestDTO) {
+        Universidad universidad = universidadMapper.convertToEntity(universidadRequestDTO);
+        
+        Universidad universidadGuardada = universidadRepository.save(universidad);
+
+        return universidadMapper.convertToDTO(universidadGuardada);
     }
 }
